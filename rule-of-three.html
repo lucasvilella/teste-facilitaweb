@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regra de Três Simples | FacilitaWeb</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"/>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 500: '#3b82f6', 600: '#2563eb' },
+                        secondary: { 500: '#f59e0b', 600: '#d97706' },
+                        darkbg: '#0f172a',
+                        carddark: '#1e293b',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .dark .glass { background: rgba(15, 23, 42, 0.95); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .bg-dot-pattern { background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 24px 24px; }
+        .dark .bg-dot-pattern { background-image: radial-gradient(#334155 1px, transparent 1px); }
+        .fi { width: 1.2em; height: 1.2em; background-size: cover; border-radius: 2px; }
+        .input-group:focus-within { transform: translateY(-1px); transition: transform 0.2s; }
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-darkbg dark:text-gray-100 transition-colors duration-300 flex flex-col min-h-screen relative">
+
+    <div class="fixed inset-0 z-0 bg-dot-pattern opacity-40 pointer-events-none"></div>
+    <div class="fixed inset-0 z-0 bg-gradient-to-b from-transparent via-gray-50/80 to-gray-50 dark:via-darkbg/80 dark:to-darkbg pointer-events-none"></div>
+
+    <nav class="fixed w-full z-50 glass transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="bg-primary-500 text-white p-2 rounded-lg group-hover:scale-105 transition-transform shadow-lg shadow-blue-500/20">
+                        <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-gray-900 dark:text-white">FacilitaWeb</span>
+                </a>
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="hidden md:flex items-center text-sm font-medium text-gray-500 hover:text-primary-500 transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4 mr-1"></i> Voltar
+                    </a>
+                    
+                    <div class="relative group h-full flex items-center">
+                        <button class="flex items-center gap-2 text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-primary-500 transition-colors py-2">
+                            <span id="current-flag" class="fi fi-br"></span>
+                            <span id="current-lang-code">BR</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
+                        </button>
+                        <div class="absolute right-0 top-full dropdown-bridge opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="w-32 bg-white dark:bg-carddark rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden mt-2 z-50">
+                                <a href="javascript:void(0)" onclick="changeLanguage('pt')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-br"></span> BR</a>
+                                <a href="javascript:void(0)" onclick="changeLanguage('en')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-us"></span> EN</a>
+                                <a href="javascript:void(0)" onclick="changeLanguage('es')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-es"></span> ES</a>
+                                <a href="javascript:void(0)" onclick="changeLanguage('fr')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-fr"></span> FR</a>
+                                <a href="javascript:void(0)" onclick="changeLanguage('it')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-it"></span> IT</a>
+                                <a href="javascript:void(0)" onclick="changeLanguage('pt_pt')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-pt"></span> PT</a>
+                                <a href="javascript:void(0)" onclick="changeLanguage('de')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-de"></span> DE</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label for="theme-toggle" class="flex items-center cursor-pointer relative mr-2">
+                        <input type="checkbox" id="theme-toggle" class="sr-only peer">
+                        <div class="w-14 h-7 bg-gray-200 dark:bg-gray-700 peer-checked:bg-primary-500 rounded-full transition-colors duration-300 p-1"></div>
+                        <div class="absolute left-1 top-1 bg-white w-5 h-5 rounded-full shadow-sm transition-transform duration-300 peer-checked:translate-x-7 flex items-center justify-center pointer-events-none">
+                            <i data-lucide="sun" class="w-3.5 h-3.5 text-yellow-500 dark:hidden transition-opacity"></i>
+                            <i data-lucide="moon" class="w-3.5 h-3.5 text-primary-500 hidden dark:block transition-opacity"></i>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-32 pb-20 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto w-full relative z-10">
+        
+        <nav class="flex text-sm text-gray-500 dark:text-gray-400 mb-8 overflow-x-auto">
+            <ol class="flex items-center space-x-2">
+                <li><a href="index.html" class="hover:text-primary-500">Home</a></li>
+                <li><span class="mx-1">/</span></li>
+                <li><a href="#" class="hover:text-primary-500" data-i18n="rule3_bread">Matemática</a></li>
+                <li><span class="mx-1">/</span></li>
+                <li class="text-primary-500 font-medium whitespace-nowrap" data-i18n="rule3_title">Regra de Três</li>
+            </ol>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <main class="lg:col-span-2">
+                <div class="bg-white dark:bg-carddark rounded-2xl shadow-xl shadow-blue-900/5 border border-gray-100 dark:border-gray-700 overflow-hidden mb-8">
+                    
+                    <div class="px-6 py-5 border-b border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/30">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="p-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 rounded-lg">
+                                    <i data-lucide="divide-square" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h1 class="text-xl font-bold text-gray-900 dark:text-white" data-i18n="rule3_title">Regra de Três</h1>
+                                    <p class="text-gray-500 dark:text-gray-400 text-[10px] mt-0.5 font-bold tracking-wider uppercase" data-i18n="rule3_subtitle">Cálculo Automático</p>
+                                </div>
+                            </div>
+                            <button onclick="clearFields()" class="flex items-center gap-1.5 text-[10px] font-bold text-gray-400 hover:text-red-500 transition-colors py-1 px-2 rounded hover:bg-red-50 dark:hover:bg-red-900/20 uppercase tracking-wider group" title="Limpar">
+                                <span data-i18n="btn_clear">LIMPAR</span> <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 group-hover:-rotate-180 transition-transform duration-500"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-3 mb-5 relative">
+                            <div class="w-full md:w-5/12 input-group">
+                                <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1.5 ml-1" data-i18n="rule3_label_a">Valor A</label>
+                                <input type="number" id="valA" oninput="calcularAuto()" class="w-full py-3 px-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-xl focus:border-primary-500 dark:focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all dark:text-white font-semibold text-lg text-center placeholder-gray-300" placeholder="0">
+                            </div>
+
+                            <div class="flex flex-col items-center justify-center w-full md:w-2/12">
+                                <div class="h-px w-full bg-gray-200 dark:bg-gray-700 hidden md:block relative top-3"></div>
+                                <span class="bg-white dark:bg-carddark px-2 text-[10px] font-bold text-gray-300 uppercase whitespace-nowrap z-10" data-i18n="rule3_is_to">está para</span>
+                            </div>
+
+                            <div class="w-full md:w-5/12 input-group">
+                                <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1.5 ml-1" data-i18n="rule3_label_b">Valor B</label>
+                                <input type="number" id="valB" oninput="calcularAuto()" class="w-full py-3 px-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-xl focus:border-primary-500 dark:focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all dark:text-white font-semibold text-lg text-center placeholder-gray-300" placeholder="0">
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="h-px bg-gray-100 dark:bg-gray-700 flex-grow"></div>
+                            <span class="text-xs font-bold text-primary-500 uppercase tracking-widest bg-blue-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 px-3 py-0.5 rounded-full" data-i18n="rule3_as">Assim como</span>
+                            <div class="h-px bg-gray-100 dark:bg-gray-700 flex-grow"></div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-3 relative">
+                            <div class="w-full md:w-5/12 input-group">
+                                <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1.5 ml-1" data-i18n="rule3_label_c">Valor C</label>
+                                <input type="number" id="valC" oninput="calcularAuto()" class="w-full py-3 px-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-xl focus:border-primary-500 dark:focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all dark:text-white font-semibold text-lg text-center placeholder-gray-300" placeholder="0">
+                            </div>
+
+                            <div class="flex flex-col items-center justify-center w-full md:w-2/12">
+                                <div class="h-px w-full bg-gray-200 dark:bg-gray-700 hidden md:block relative top-3"></div>
+                                <span class="bg-white dark:bg-carddark px-2 text-[10px] font-bold text-gray-300 uppercase whitespace-nowrap z-10" data-i18n="rule3_is_to">está para</span>
+                            </div>
+
+                            <div class="w-full md:w-5/12">
+                                <label class="block text-[10px] font-bold text-orange-500 uppercase mb-1.5 ml-1" data-i18n="rule3_result">Resultado (X)</label>
+                                <div class="w-full py-3 px-4 bg-gradient-to-r from-orange-500 to-orange-400 text-white rounded-xl shadow-lg shadow-orange-500/20 flex items-center justify-center h-[54px] relative overflow-hidden group cursor-default">
+                                    <span id="resultX" class="text-2xl font-bold tracking-tight">?</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <article class="prose dark:prose-invert max-w-none text-sm">
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-3" data-i18n="rule3_seo_title">Entenda a Lógica</h2>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-4" data-i18n="rule3_seo_desc">
+                        Esta calculadora utiliza a proporcionalidade direta. A ferramenta calcula automaticamente assim que você preenche os campos. A fórmula é:
+                    </p>
+                    <div class="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg text-center font-mono text-sm text-gray-700 dark:text-gray-300 mb-5 border border-gray-200 dark:border-gray-700">
+                        X = (B × C) ÷ A
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2" data-i18n="rule3_ex_title">Exemplo Prático:</h3>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed bg-white dark:bg-carddark p-4 rounded-xl border border-gray-100 dark:border-gray-700" data-i18n="rule3_ex_desc">
+                        Se 2 kg custam R$ 60,00, quanto custarão 5 kg? O cálculo será: (60 * 5) / 2 = 150.
+                    </p>
+                </article>
+
+            </main>
+
+            <aside class="space-y-6">
+                <div class="bg-white dark:bg-carddark p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                    <h3 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2 text-xs uppercase tracking-wider">
+                        <i data-lucide="plus-circle" class="w-4 h-4 text-primary-500"></i> <span data-i18n="related_title">Relacionados</span>
+                    </h3>
+                    <div class="space-y-1">
+                        <a href="#" class="block p-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 text-orange-600 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="percent" class="w-4 h-4"></i></div>
+                                <div><p class="font-medium text-gray-800 dark:text-gray-200 text-sm group-hover:text-primary-500 transition-colors">Porcentagem</p></div>
+                            </div>
+                        </a>
+                        <a href="#" class="block p-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="calendar" class="w-4 h-4"></i></div>
+                                <div><p class="font-medium text-gray-800 dark:text-gray-200 text-sm group-hover:text-primary-500 transition-colors">Média Escolar</p></div>
+                            </div>
+                        </a>
+                        <a href="#" class="block p-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="table" class="w-4 h-4"></i></div>
+                                <div><p class="font-medium text-gray-800 dark:text-gray-200 text-sm group-hover:text-primary-500 transition-colors">Tabuada</p></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 dark:bg-gray-800/50 rounded-2xl h-60 flex flex-col items-center justify-center border border-dashed border-gray-300 dark:border-gray-700 text-center p-4">
+                    <span class="text-gray-400 text-[10px] font-bold uppercase mb-2" data-i18n="ad_label">Publicidade</span>
+                    <p class="text-gray-500 text-xs">Espaço reservado para Google AdSense</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="bg-gray-50 dark:bg-darkbg border-t border-gray-200 dark:border-gray-800 pt-16 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <span class="font-bold text-xl text-gray-900 dark:text-white flex items-center gap-2 mb-4">
+                        <div class="bg-primary-500 text-white p-1 rounded-lg"><i data-lucide="calculator" class="w-4 h-4"></i></div>
+                        FacilitaWeb
+                    </span>
+                    <p class="text-sm text-gray-500 mb-6 leading-relaxed" data-i18n="footer_slogan">
+                        Acesse mais de 50 ferramentas gratuitas para calcular desde o financeiro ao bem-estar.<br>Simplificando o complexo.
+                    </p>
+                </div>
+                <div class="col-span-1 md:col-span-2">
+                    <h5 class="font-bold text-gray-900 dark:text-white mb-4 uppercase text-xs tracking-wider" data-i18n="nav_categories">Categorias</h5>
+                    <ul class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-primary-500" data-i18n="card_labor_title">Trabalhista</a></li>
+                        <li><a href="#" class="hover:text-primary-500" data-i18n="card_vehicle_title">Veículos</a></li>
+                        <li><a href="#" class="hover:text-primary-500" data-i18n="card_calc_title">Calculadoras</a></li>
+                        <li><a href="#" class="hover:text-primary-500" data-i18n="card_dates_title">Datas</a></li>
+                        <li><a href="#" class="hover:text-primary-500" data-i18n="card_finance_title">Financeiro</a></li>
+                        <li><a href="#" class="hover:text-primary-500" data-i18n="card_math_title">Matemática</a></li>
+                        <li><a href="#" class="hover:text-primary-500" data-i18n="card_luck_title">Sorte</a></li>
+                        <li><a href="#" class="hover:text-primary-500" data-i18n="card_dev_title">Texto e Dev</a></li>
+                        <li><a href="#" class="hover:text-primary-500" data-i18n="card_health_title">Saúde</a></li>
+                        <li><a href="#" class="hover:text-primary-500" data-i18n="card_home_title">Casa</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-1 md:col-span-1">
+                    <h5 class="font-bold text-gray-900 dark:text-white mb-4 uppercase text-xs tracking-wider" data-i18n="legal_title">Legal</h5>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-primary-500">Privacidade</a></li>
+                        <li><a href="#" class="hover:text-primary-500">Termos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-400">© 2026 FacilitaWeb.</p>
+                <div class="flex items-center gap-2 text-sm text-gray-400"><span>Brasil</span><i data-lucide="heart" class="w-3 h-3 text-red-500 fill-current"></i></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+
+    <script>
+        lucide.createIcons();
+
+        function calcularAuto() {
+            const a = parseFloat(document.getElementById('valA').value);
+            const b = parseFloat(document.getElementById('valB').value);
+            const c = parseFloat(document.getElementById('valC').value);
+            const resultBox = document.getElementById('resultX');
+
+            if (!isNaN(a) && !isNaN(b) && !isNaN(c) && a !== 0) {
+                const res = (b * c) / a;
+                resultBox.innerText = Number.isInteger(res) ? res : res.toFixed(2);
+            } else {
+                resultBox.innerText = "?";
+            }
+        }
+
+        function clearFields() {
+            document.getElementById('valA').value = '';
+            document.getElementById('valB').value = '';
+            document.getElementById('valC').value = '';
+            document.getElementById('resultX').innerText = '?';
+        }
+
+        const toggleInput = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark'); toggleInput.checked = true;
+        } else {
+            html.classList.remove('dark'); toggleInput.checked = false;
+        }
+
+        toggleInput.addEventListener('change', function() {
+            if (this.checked) { html.classList.add('dark'); localStorage.theme = 'dark'; } 
+            else { html.classList.remove('dark'); localStorage.theme = 'light'; }
+        });
+    </script>
+</body>
+</html>
