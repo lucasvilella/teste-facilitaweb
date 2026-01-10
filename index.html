@@ -64,7 +64,6 @@
         .tool-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .tool-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2); }
         .fi { width: 1.2em; height: 1.2em; background-size: cover; border-radius: 2px; }
-        .dropdown-bridge { padding-top: 10px; margin-top: -10px; }
         
         /* Padrão de fundo otimizado */
         .bg-grid-pattern {
@@ -95,30 +94,11 @@
                 </a>
 
                 <div class="hidden md:hidden space-x-8 text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                    <a href="#" class="hover:text-primary-500 transition-colors" data-i18n="nav_categories">Categorias</a>
-                    <a href="#" class="hover:text-primary-500 transition-colors" data-i18n="nav_popular">Populares</a>
+                    <a href="#" class="hover:text-primary-500 transition-colors">Categorias</a>
+                    <a href="#" class="hover:text-primary-500 transition-colors">Populares</a>
                 </div>
 
                 <div class="flex items-center gap-6">
-                    <div class="relative group h-full flex items-center">
-                        <button class="flex items-center gap-2 text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-primary-500 transition-colors py-2">
-                            <span id="current-flag" class="fi fi-br"></span>
-                            <span id="current-lang-code">BR</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
-                        </button>
-                        <div class="absolute right-0 top-full dropdown-bridge opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
-                            <div class="w-32 bg-white dark:bg-carddark rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden mt-2 z-50">
-                                <a href="javascript:void(0)" onclick="changeLanguage('pt')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-br"></span> BR</a>
-                                <a href="javascript:void(0)" onclick="changeLanguage('en')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-us"></span> EN</a>
-                                <a href="javascript:void(0)" onclick="changeLanguage('es')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-es"></span> ES</a>
-                                <a href="javascript:void(0)" onclick="changeLanguage('fr')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-fr"></span> FR</a>
-                                <a href="javascript:void(0)" onclick="changeLanguage('it')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-it"></span> IT</a>
-                                <a href="javascript:void(0)" onclick="changeLanguage('pt_pt')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-pt"></span> PT</a>
-                                <a href="javascript:void(0)" onclick="changeLanguage('de')" class="flex items-center gap-3 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"><span class="fi fi-de"></span> DE</a>
-                            </div>
-                        </div>
-                    </div>
-
                     <label for="theme-toggle" class="flex items-center cursor-pointer relative mr-2">
                         <input type="checkbox" id="theme-toggle" class="sr-only peer">
                         <div class="w-14 h-7 bg-gray-200 dark:bg-gray-700 peer-checked:bg-primary-500 rounded-full transition-colors duration-300 p-1"></div>
@@ -132,31 +112,31 @@
         </div>
     </nav>
 
-    <section class="relative pt-32 pb-16 px-10 sm:px-16 lg:px-24 text-center z-20">
+    <section class="relative pt-32 pb-16 px-10 sm:px-16 lg:px-24 text-center z-40">
         <h1 class="text-4xl sm:text-6xl font-extrabold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight">
-            <span data-i18n="hero_title_1">Tudo o que você precisa</span><br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-purple-600" data-i18n="hero_title_2">em um único lugar.</span>
+            <span>Tudo o que você precisa</span><br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-purple-600">em um único lugar.</span>
         </h1>
-        <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto" data-i18n="hero_subtitle">
+        <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
             Calculadoras trabalhistas, financeiras, de saúde e muito mais.<br>Ferramentas gratuitas para simplificar o seu dia a dia.
         </p>
 
-        <div class="max-w-2xl mx-auto relative group z-30">
+        <div class="max-w-2xl mx-auto relative group z-50">
             <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                 <i data-lucide="search" class="w-5 h-5 text-gray-400 group-focus-within:text-primary-500 transition-colors"></i>
             </div>
             <input type="text" id="main-search" autocomplete="off"
-                class="block w-full pl-12 pr-6 py-4 bg-white dark:bg-carddark border border-gray-200 dark:border-gray-700 rounded-full shadow-xl shadow-blue-500/5 focus:ring-4 focus:ring-primary-100 dark:focus:ring-primary-900/30 focus:border-primary-500 text-lg transition-all outline-none placeholder-gray-400 dark:text-white"
-                placeholder="Busque por Rescisão, Dias Úteis, IMC..." data-i18n-placeholder="search_placeholder">
-            <div id="search-results" class="hidden absolute top-full left-0 right-0 mt-4 bg-white dark:bg-carddark rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden text-left max-h-80 overflow-y-auto"></div>
+                class="block w-full pl-12 pr-6 py-4 bg-white dark:bg-carddark border border-gray-200 dark:border-gray-700 rounded-full shadow-xl shadow-blue-500/5 focus:ring-4 focus:ring-primary-100 dark:focus:ring-primary-900/30 focus:border-primary-500 text-lg transition-all outline-none placeholder-gray-400 dark:text-white relative z-50"
+                placeholder="Busque por Rescisão, Dias Úteis, IMC...">
+            <div id="search-results" class="hidden absolute top-full left-0 right-0 mt-4 bg-white dark:bg-carddark rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden text-left max-h-80 overflow-y-auto z-50"></div>
         </div>
     </section>
 
-    <main class="max-w-7xl mx-auto px-10 sm:px-16 lg:px-24 pb-24 flex-grow relative z-10">
+    <main class="max-w-7xl mx-auto px-10 sm:px-16 lg:px-24 pb-24 flex-grow relative z-0">
         
         <div class="flex items-center justify-center mb-12">
             <div class="h-px w-16 bg-gray-200 dark:bg-gray-700"></div>
-            <span class="px-4 text-gray-400 text-sm font-semibold uppercase tracking-widest" data-i18n="section_niches">Navegue por Categorias</span>
+            <span class="px-4 text-gray-400 text-sm font-semibold uppercase tracking-widest">Navegue por Categorias</span>
             <div class="h-px w-16 bg-gray-200 dark:bg-gray-700"></div>
         </div>
 
@@ -167,8 +147,8 @@
                     <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i data-lucide="briefcase" class="w-6 h-6"></i></div>
                     <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors" data-i18n="card_labor_title">Trabalhista</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="card_labor_desc">Rescisão, Férias, 13º e FGTS.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors">Trabalhista</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Rescisão, Férias, 13º, FGTS...</p>
             </a>
 
             <a href="categorias/categoria-calculadoras.html" class="group bg-white dark:bg-carddark p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary-500/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
@@ -176,8 +156,8 @@
                     <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i data-lucide="calculator" class="w-6 h-6"></i></div>
                     <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors" data-i18n="card_calc_title">Calculadoras</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="card_calc_desc">Padrão, Científica e Financeira.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors">Calculadoras</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Padrão, Científica, Financeira...</p>
             </a>
 
             <a href="categorias/categoria-financeiro.html" class="group bg-white dark:bg-carddark p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary-500/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
@@ -185,8 +165,8 @@
                     <div class="w-12 h-12 bg-green-50 dark:bg-green-900/20 text-green-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i data-lucide="wallet" class="w-6 h-6"></i></div>
                     <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors" data-i18n="card_finance_title">Financeiro</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="card_finance_desc">Juros, Câmbio e Financiamento.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors">Financeiro</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Juros, Câmbio, Financiamento...</p>
             </a>
 
             <a href="categorias/categoria-sorte-e-loterias.html" class="group bg-white dark:bg-carddark p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary-500/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
@@ -194,8 +174,8 @@
                     <div class="w-12 h-12 bg-teal-50 dark:bg-teal-900/20 text-teal-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i data-lucide="dices" class="w-6 h-6"></i></div>
                     <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors" data-i18n="card_luck_title">Sorte</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="card_luck_desc">Palpites, Loterias e Números.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors">Sorte e Loterias</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Palpites, Loterias, Números...</p>
             </a>
 
             <a href="categorias/categoria-saude-e-bem-estar.html" class="group bg-white dark:bg-carddark p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary-500/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
@@ -203,8 +183,8 @@
                     <div class="w-12 h-12 bg-red-50 dark:bg-red-900/20 text-red-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i data-lucide="heart-pulse" class="w-6 h-6"></i></div>
                     <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors" data-i18n="card_health_title">Saúde</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="card_health_desc">IMC, Calorias e Gestacional.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors">Saúde e Bem-estar</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">IMC, Calorias, Gestacional...</p>
             </a>
 
             <a href="categorias/categoria-veiculos.html" class="group bg-white dark:bg-carddark p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary-500/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
@@ -212,8 +192,8 @@
                     <div class="w-12 h-12 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i data-lucide="car-front" class="w-6 h-6"></i></div>
                     <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors" data-i18n="card_vehicle_title">Veículos</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="card_vehicle_desc">Combustível, Viagem e FIPE.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors">Veículos</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Combustível, Viagem, FIPE...</p>
             </a>
 
             <a href="categorias/categoria-datas-e-tempo.html" class="group bg-white dark:bg-carddark p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary-500/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
@@ -221,8 +201,8 @@
                     <div class="w-12 h-12 bg-purple-50 dark:bg-purple-900/20 text-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i data-lucide="calendar-clock" class="w-6 h-6"></i></div>
                     <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors" data-i18n="card_dates_title">Datas</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="card_dates_desc">Dias úteis, Prazos e Idade.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors">Datas e Tempo</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Dias úteis, Prazos, Idade...</p>
             </a>
 
             <a href="categorias/categoria-matematica-e-educacao.html" class="group bg-white dark:bg-carddark p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary-500/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
@@ -230,8 +210,8 @@
                     <div class="w-12 h-12 bg-orange-50 dark:bg-orange-900/20 text-orange-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i data-lucide="divide-square" class="w-6 h-6"></i></div>
                     <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors" data-i18n="card_math_title">Matemática</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="card_math_desc">Regra de 3, Porcentagem e Tabuada.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors">Matemática e Educação</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Regra de 3, Porcentagem, Tabuada...</p>
             </a>
 
             <a href="categorias/categoria-texto-e-dev.html" class="group bg-white dark:bg-carddark p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary-500/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
@@ -239,8 +219,8 @@
                     <div class="w-12 h-12 bg-gray-100 dark:bg-gray-700/50 text-gray-600 dark:text-gray-300 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i data-lucide="code-2" class="w-6 h-6"></i></div>
                     <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors" data-i18n="card_dev_title">Texto e Dev</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="card_dev_desc">Senhas, JSON e Formatação.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors">Texto e Dev</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Senhas, JSON, Formatação...</p>
             </a>
 
             <a href="categorias/categoria-casa-e-construcao.html" class="group bg-white dark:bg-carddark p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary-500/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
@@ -248,8 +228,8 @@
                     <div class="w-12 h-12 bg-amber-50 dark:bg-amber-900/20 text-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i data-lucide="hammer" class="w-6 h-6"></i></div>
                     <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors" data-i18n="card_home_title">Casa</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="card_home_desc">Churrasco, Tinta e Reformas.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors">Casa e Construção</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Churrasco, Tinta, Reformas...</p>
             </a>
 
             <a href="categorias/categoria-social-e-utilitarios.html" class="group bg-white dark:bg-carddark p-6 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-primary-500/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
@@ -257,8 +237,8 @@
                     <div class="w-12 h-12 bg-violet-50 dark:bg-violet-900/20 text-violet-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform"><i data-lucide="share-2" class="w-6 h-6"></i></div>
                     <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-300 group-hover:text-primary-500 transition-colors"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors" data-i18n="card_social_title">Social & Utilitários</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="card_social_desc">WhatsApp, QR Code e Recibos.</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-500 transition-colors">Social e Utilitários</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Link WhatsApp, QR Code, Recibos...</p>
             </a>
 
         </div>
@@ -323,33 +303,33 @@
                         <div class="bg-primary-500 text-white p-1 rounded-lg"><i data-lucide="calculator" class="w-4 h-4"></i></div>
                         FacilitaWeb
                     </span>
-                    <p class="text-sm text-gray-500 mb-6 leading-relaxed" data-i18n="footer_slogan">
+                    <p class="text-sm text-gray-500 mb-6 leading-relaxed">
                         Acesse mais de 50 ferramentas gratuitas para calcular desde o financeiro ao bem-estar.<br>Simplificando o complexo.
                     </p>
                 </div>
                 <div class="col-span-1 md:col-span-2">
-                    <h5 class="font-bold text-gray-900 dark:text-white mb-4 uppercase text-xs tracking-wider" data-i18n="nav_categories">Categorias</h5>
+                    <h5 class="font-bold text-gray-900 dark:text-white mb-4 uppercase text-xs tracking-wider">Categorias</h5>
                     <ul class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-500">
-                        <li><a href="categorias/categoria-trabalhista.html" class="hover:text-primary-500" data-i18n="card_labor_title">Trabalhista</a></li>
-                        <li><a href="categorias/categoria-veiculos.html" class="hover:text-primary-500" data-i18n="card_vehicle_title">Veículos</a></li>
-                        <li><a href="categorias/categoria-calculadoras.html" class="hover:text-primary-500" data-i18n="card_calc_title">Calculadoras</a></li>
-                        <li><a href="categorias/categoria-datas-e-tempo.html" class="hover:text-primary-500" data-i18n="card_dates_title">Datas</a></li>
-                        <li><a href="categorias/categoria-financeiro.html" class="hover:text-primary-500" data-i18n="card_finance_title">Financeiro</a></li>
-                        <li><a href="categorias/categoria-matematica-e-educacao.html" class="hover:text-primary-500" data-i18n="card_math_title">Matemática</a></li>
-                        <li><a href="categorias/categoria-sorte-e-loterias.html" class="hover:text-primary-500" data-i18n="card_luck_title">Sorte</a></li>
-                        <li><a href="categorias/categoria-texto-e-dev.html" class="hover:text-primary-500" data-i18n="card_dev_title">Texto e Dev</a></li>
-                        <li><a href="categorias/categoria-saude-e-bem-estar.html" class="hover:text-primary-500" data-i18n="card_health_title">Saúde</a></li>
-                        <li><a href="categorias/categoria-casa-e-construcao.html" class="hover:text-primary-500" data-i18n="card_home_title">Casa</a></li>
-                        <li><a href="categorias/categoria-social-e-utilitarios.html" class="hover:text-primary-500" data-i18n="card_social_title">Social & Utilitários</a></li>
+                        <li><a href="categorias/categoria-trabalhista.html" class="hover:text-primary-500">Trabalhista</a></li>
+                        <li><a href="categorias/categoria-veiculos.html" class="hover:text-primary-500">Veículos</a></li>
+                        <li><a href="categorias/categoria-calculadoras.html" class="hover:text-primary-500">Calculadoras</a></li>
+                        <li><a href="categorias/categoria-datas-e-tempo.html" class="hover:text-primary-500">Datas e Tempo</a></li>
+                        <li><a href="categorias/categoria-financeiro.html" class="hover:text-primary-500">Financeiro</a></li>
+                        <li><a href="categorias/categoria-matematica-e-educacao.html" class="hover:text-primary-500">Matemática e Educação</a></li>
+                        <li><a href="categorias/categoria-sorte-e-loterias.html" class="hover:text-primary-500">Sorte e Loterias</a></li>
+                        <li><a href="categorias/categoria-texto-e-dev.html" class="hover:text-primary-500">Texto e Dev</a></li>
+                        <li><a href="categorias/categoria-saude-e-bem-estar.html" class="hover:text-primary-500">Saúde e Bem-estar</a></li>
+                        <li><a href="categorias/categoria-casa-e-construcao.html" class="hover:text-primary-500">Casa e Construção</a></li>
+                        <li><a href="categorias/categoria-social-e-utilitarios.html" class="hover:text-primary-500">Social e Utilitários</a></li>
                     </ul>
                 </div>
                 <div class="col-span-1 md:col-span-1">
-                    <h5 class="font-bold text-gray-900 dark:text-white mb-4 uppercase text-xs tracking-wider" data-i18n="legal_title">Legal</h5>
+                    <h5 class="font-bold text-gray-900 dark:text-white mb-4 uppercase text-xs tracking-wider">Legal</h5>
                     <ul class="space-y-2 text-sm text-gray-500 mb-6">
                         <li><a href="#" class="hover:text-primary-500">Privacidade</a></li>
                         <li><a href="#" class="hover:text-primary-500">Termos</a></li>
                     </ul>
-                    <h5 class="font-bold text-gray-900 dark:text-white mb-4 uppercase text-xs tracking-wider" data-i18n="contact_title">Contato</h5>
+                    <h5 class="font-bold text-gray-900 dark:text-white mb-4 uppercase text-xs tracking-wider">Contato</h5>
                     <ul class="space-y-2 text-sm text-gray-500">
                         <li><a href="#" class="hover:text-primary-500">Sobre nós</a></li>
                     </ul>
@@ -362,12 +342,9 @@
         </div>
     </footer>
 
-    <script src="js/translations.js"></script>
-
     <script>
         lucide.createIcons();
         
-        // --- 1. LÓGICA DE BUSCA OTIMIZADA ---
         const toolsDatabase = [
             { name: "Rescisão CLT", url: "ferramentas/ferramentas-trabalhista-rescisao.html", category: "Trabalhista" },
             { name: "Férias", url: "ferramentas/ferramentas-trabalhista-ferias.html", category: "Trabalhista" },
@@ -391,52 +368,52 @@
             { name: "Financeira HP12C", url: "ferramentas/ferramentas-calculadoras-financeira.html", category: "Calculadoras" },
             { name: "Programador", url: "ferramentas/ferramentas-calculadoras-programador.html", category: "Calculadoras" },
 
-            { name: "Gerador Senha", url: "ferramentas/ferramentas-dev-gerador-senha.html", category: "Dev" },
-            { name: "Lorem Ipsum", url: "ferramentas/ferramentas-dev-lorem-ipsum.html", category: "Dev" },
-            { name: "Contador Caracteres", url: "ferramentas/ferramentas-dev-contador-caracteres.html", category: "Dev" },
-            { name: "JSON Formatter", url: "ferramentas/ferramentas-dev-formatador-json.html", category: "Dev" },
-            { name: "Maiúsculas/Minúsculas", url: "ferramentas/ferramentas-dev-maiusculas.html", category: "Dev" },
-            { name: "Gerador CPF/CNPJ", url: "ferramentas/ferramentas-dev-cpf-cnpj.html", category: "Dev" },
-            { name: "Teste Digitação", url: "ferramentas/ferramentas-dev-digitacao.html", category: "Dev" },
+            { name: "Gerador Senha", url: "ferramentas/ferramentas-dev-gerador-senha.html", category: "Texto e Dev" },
+            { name: "Lorem Ipsum", url: "ferramentas/ferramentas-dev-lorem-ipsum.html", category: "Texto e Dev" },
+            { name: "Contador Caracteres", url: "ferramentas/ferramentas-dev-contador-caracteres.html", category: "Texto e Dev" },
+            { name: "JSON Formatter", url: "ferramentas/ferramentas-dev-formatador-json.html", category: "Texto e Dev" },
+            { name: "Maiúsculas/Minúsculas", url: "ferramentas/ferramentas-dev-maiusculas.html", category: "Texto e Dev" },
+            { name: "Gerador CPF/CNPJ", url: "ferramentas/ferramentas-dev-cpf-cnpj.html", category: "Texto e Dev" },
+            { name: "Teste Digitação", url: "ferramentas/ferramentas-dev-digitacao.html", category: "Texto e Dev" },
 
-            { name: "Link WhatsApp", url: "ferramentas/ferramentas-social-gerador-whatsapp.html", category: "Social" },
-            { name: "Gerador QR Code", url: "ferramentas/ferramentas-social-qrcode.html", category: "Social" },
-            { name: "Gerador Recibo", url: "ferramentas/ferramentas-social-recibo.html", category: "Social" },
+            { name: "Link WhatsApp", url: "ferramentas/ferramentas-social-gerador-whatsapp.html", category: "Social e Utilitários" },
+            { name: "Gerador QR Code", url: "ferramentas/ferramentas-social-qrcode.html", category: "Social e Utilitários" },
+            { name: "Gerador Recibo", url: "ferramentas/ferramentas-social-recibo.html", category: "Social e Utilitários" },
 
-            { name: "Dias Úteis", url: "ferramentas/ferramentas-datas-dias-uteis.html", category: "Datas" },
-            { name: "Idade Exata", url: "ferramentas/ferramentas-datas-idade.html", category: "Datas" },
-            { name: "Somar Datas", url: "ferramentas/ferramentas-datas-somar.html", category: "Datas" },
-            { name: "Calendário Feriados", url: "ferramentas/ferramentas-datas-calendario.html", category: "Datas" },
-            { name: "Cronômetro", url: "ferramentas/ferramentas-datas-cronometro.html", category: "Datas" },
+            { name: "Dias Úteis", url: "ferramentas/ferramentas-datas-dias-uteis.html", category: "Datas e Tempo" },
+            { name: "Idade Exata", url: "ferramentas/ferramentas-datas-idade.html", category: "Datas e Tempo" },
+            { name: "Somar Datas", url: "ferramentas/ferramentas-datas-somar.html", category: "Datas e Tempo" },
+            { name: "Calendário Feriados", url: "ferramentas/ferramentas-datas-calendario.html", category: "Datas e Tempo" },
+            { name: "Cronômetro", url: "ferramentas/ferramentas-datas-cronometro.html", category: "Datas e Tempo" },
 
-            { name: "IMC", url: "ferramentas/ferramentas-saude-imc.html", category: "Saúde" },
-            { name: "Taxa Metabólica", url: "ferramentas/ferramentas-saude-tmb.html", category: "Saúde" },
-            { name: "Água Diária", url: "ferramentas/ferramentas-saude-agua.html", category: "Saúde" },
-            { name: "Gestacional", url: "ferramentas/ferramentas-saude-gestacional.html", category: "Saúde" },
-            { name: "Macros e Calorias", url: "ferramentas/ferramentas-saude-macros.html", category: "Saúde" },
+            { name: "IMC", url: "ferramentas/ferramentas-saude-imc.html", category: "Saúde e Bem-estar" },
+            { name: "Taxa Metabólica", url: "ferramentas/ferramentas-saude-tmb.html", category: "Saúde e Bem-estar" },
+            { name: "Água Diária", url: "ferramentas/ferramentas-saude-agua.html", category: "Saúde e Bem-estar" },
+            { name: "Gestacional", url: "ferramentas/ferramentas-saude-gestacional.html", category: "Saúde e Bem-estar" },
+            { name: "Macros e Calorias", url: "ferramentas/ferramentas-saude-macros.html", category: "Saúde e Bem-estar" },
 
             { name: "Álcool ou Gasolina", url: "ferramentas/ferramentas-veiculos-combustivel.html", category: "Veículos" },
             { name: "Custo Viagem", url: "ferramentas/ferramentas-veiculos-custo-viagem.html", category: "Veículos" },
             { name: "Tabela FIPE", url: "ferramentas/ferramentas-veiculos-fipe.html", category: "Veículos" },
             { name: "Cálculo IPVA", url: "ferramentas/ferramentas-veiculos-ipva.html", category: "Veículos" },
 
-            { name: "Loterias", url: "ferramentas/ferramentas-sorte-loterias.html", category: "Sorte" },
-            { name: "Sorteador Números", url: "ferramentas/ferramentas-sorte-numeros.html", category: "Sorte" },
-            { name: "Sorteador Nomes", url: "ferramentas/ferramentas-sorte-nomes.html", category: "Sorte" },
-            { name: "Roleta", url: "ferramentas/ferramentas-sorte-roleta.html", category: "Sorte" },
-            { name: "Numerologia", url: "ferramentas/ferramentas-sorte-numerologia.html", category: "Sorte" },
+            { name: "Loterias", url: "ferramentas/ferramentas-sorte-loterias.html", category: "Sorte e Loterias" },
+            { name: "Sorteador Números", url: "ferramentas/ferramentas-sorte-numeros.html", category: "Sorte e Loterias" },
+            { name: "Sorteador Nomes", url: "ferramentas/ferramentas-sorte-nomes.html", category: "Sorte e Loterias" },
+            { name: "Roleta", url: "ferramentas/ferramentas-sorte-roleta.html", category: "Sorte e Loterias" },
+            { name: "Numerologia", url: "ferramentas/ferramentas-sorte-numerologia.html", category: "Sorte e Loterias" },
 
-            { name: "Churrasco", url: "ferramentas/ferramentas-casa-churrasco.html", category: "Casa" },
-            { name: "Ar Condicionado (BTUs)", url: "ferramentas/ferramentas-casa-btus.html", category: "Casa" },
-            { name: "Tinta", url: "ferramentas/ferramentas-casa-tinta.html", category: "Casa" },
-            { name: "Pisos", url: "ferramentas/ferramentas-casa-pisos.html", category: "Casa" },
+            { name: "Churrasco", url: "ferramentas/ferramentas-casa-churrasco.html", category: "Casa e Construção" },
+            { name: "Ar Condicionado (BTUs)", url: "ferramentas/ferramentas-casa-btus.html", category: "Casa e Construção" },
+            { name: "Tinta", url: "ferramentas/ferramentas-casa-tinta.html", category: "Casa e Construção" },
+            { name: "Pisos", url: "ferramentas/ferramentas-casa-pisos.html", category: "Casa e Construção" },
 
-            { name: "Regra de Três", url: "ferramentas/ferramentas-matematica-regra-de-tres.html", category: "Matemática" },
-            { name: "Porcentagem", url: "ferramentas/ferramentas-matematica-porcentagem.html", category: "Matemática" },
-            { name: "Tabuada", url: "ferramentas/ferramentas-matematica-tabuada.html", category: "Matemática" },
-            { name: "Geometria", url: "ferramentas/ferramentas-matematica-area-geometria.html", category: "Matemática" },
-            { name: "Média Escolar", url: "ferramentas/ferramentas-matematica-media-escolar.html", category: "Matemática" },
-            { name: "Lei de Ohm", url: "ferramentas/ferramentas-matematica-lei-ohm.html", category: "Matemática" }
+            { name: "Regra de Três", url: "ferramentas/ferramentas-matematica-regra-de-tres.html", category: "Matemática e Educação" },
+            { name: "Porcentagem", url: "ferramentas/ferramentas-matematica-porcentagem.html", category: "Matemática e Educação" },
+            { name: "Tabuada", url: "ferramentas/ferramentas-matematica-tabuada.html", category: "Matemática e Educação" },
+            { name: "Geometria", url: "ferramentas/ferramentas-matematica-area-geometria.html", category: "Matemática e Educação" },
+            { name: "Média Escolar", url: "ferramentas/ferramentas-matematica-media-escolar.html", category: "Matemática e Educação" },
+            { name: "Lei de Ohm", url: "ferramentas/ferramentas-matematica-lei-ohm.html", category: "Matemática e Educação" }
         ];
 
         const searchInput = document.getElementById('main-search');
